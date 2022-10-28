@@ -17,7 +17,7 @@ export default function LoginPage() {
     const [email,setEmail]=useState("");
     const [rate,setRate]=useState(() => {
             const item = JSON.parse(window.localStorage.getItem("MY_APP_RATES"));
-           return item || {}
+           return item || {};
     });
     const [errorMsg, setErrorMsg]=useState(false);
     const [responseTime,setResponseTime]=useState(()=>{
