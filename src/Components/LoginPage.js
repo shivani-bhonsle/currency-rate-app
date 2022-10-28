@@ -27,7 +27,7 @@ export default function LoginPage() {
     const date = new Date();
    async function handleSubmit(e) {
         e.preventDefault();
-        var mailformat = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        var mailformat = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/; //eslint-disable-line
         if (!email.match(mailformat)) {
             setErrorMsg(true)
             emailElement.current.focus();
@@ -62,12 +62,6 @@ export default function LoginPage() {
     }
 
     function millisToMinutesAndSeconds(millis) {
-        // var milliseconds = parseInt((millis % 1000) / 100),
-        // seconds = Math.floor((millis / 1000) % 60),
-        // minutes = (minutes < 10) ? "0" + minutes : minutes;
-        // seconds = (seconds < 10) ? "0" + seconds : seconds;
-        // return minutes + ":" + seconds + "." + milliseconds;
-        // var minutes = Math.floor(millis / 60000);
         var minutes = Math.floor((millis / (1000 * 60)) % 60)
         var seconds = ((millis % 60000) / 1000).toFixed(0);
         return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;

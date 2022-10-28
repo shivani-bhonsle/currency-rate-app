@@ -9,6 +9,7 @@ function Stats(props){
     const [currency,setCurrency]=useState("");
     const [highestRate, setHighestRate]=useState(0);
     const [convertedValue, setConvertedValue]=useState(0);
+    const obj = props.rates;
     async function FetchStatsData(){
             const date = new Date();
             let year = date.getFullYear();
@@ -32,8 +33,6 @@ function Stats(props){
                 setPerct(((USD/INR)*100).toFixed(2))
                 setCurrency1("INR")
             }
-            const obj = props.rates;
-            const keys = Object.keys(obj);
             const values = Object.values(props.rates);
             let highRate=Math.max(...values);
             setHighestRate(highRate.toFixed(1));
@@ -47,7 +46,7 @@ function Stats(props){
     }
     useEffect(()=>{
         FetchStatsData();
-    },[]);
+    },[]);                              //eslint-disable-line
     return(
   <>   
 <div className="surface-ground px-4 py-5 md:px-6 lg:px-8 mt-8">

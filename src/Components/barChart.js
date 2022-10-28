@@ -3,9 +3,8 @@ import { Chart } from 'primereact/chart';
 
    
 function BarChart(props){
-    // const [rateKeys,setRateKeys]=useState([]);
-    // const [rateValues,setRateValues]=useState([]);
     const [basicData, setBasicData]=useState({});
+    const rates =props.rates;
     const chartDisplay=()=>{
         const rateKeys = Object.keys(props.rates).slice(50,55);
         const rateValues = Object.values(props.rates).slice(50,55);
@@ -25,7 +24,7 @@ function BarChart(props){
  
     useEffect(() => {
         chartDisplay();
-    },[props.rates]);
+    },[rates]);                                     //eslint-disable-line
     
 
 const getLightTheme = () => {
