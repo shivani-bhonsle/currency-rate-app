@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/currency-rate-app/static/css/main.2fb45fc7.css",
+    "main.js": "/currency-rate-app/static/js/main.e61b64b9.js",
+    "static/js/419.4e7e64f3.chunk.js": "/currency-rate-app/static/js/419.4e7e64f3.chunk.js",
+    "static/js/787.a8b3d52c.chunk.js": "/currency-rate-app/static/js/787.a8b3d52c.chunk.js",
+    "static/media/primeicons.svg": "/currency-rate-app/static/media/primeicons.e1441b135b3ca9ad643c.svg",
+    "static/media/primeicons.eot": "/currency-rate-app/static/media/primeicons.d44157bdfa026dc877af.eot",
+    "static/media/primeicons.woff": "/currency-rate-app/static/media/primeicons.10d3152104f2208ac82a.woff",
+    "static/media/primeicons.ttf": "/currency-rate-app/static/media/primeicons.ea5358601d0a3fd6670b.ttf",
+    "static/media/primeicons.woff2": "/currency-rate-app/static/media/primeicons.78172950b335ccdb94e2.woff2",
+    "index.html": "/currency-rate-app/index.html",
+    "main.2fb45fc7.css.map": "/currency-rate-app/static/css/main.2fb45fc7.css.map",
+    "main.e61b64b9.js.map": "/currency-rate-app/static/js/main.e61b64b9.js.map",
+    "419.4e7e64f3.chunk.js.map": "/currency-rate-app/static/js/419.4e7e64f3.chunk.js.map",
+    "787.a8b3d52c.chunk.js.map": "/currency-rate-app/static/js/787.a8b3d52c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2fb45fc7.css",
+    "static/js/main.e61b64b9.js"
+  ]
+}
