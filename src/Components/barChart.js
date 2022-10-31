@@ -6,10 +6,8 @@ function BarChart(props){
     const [basicData, setBasicData]=useState({});
     const rates =props.rates;
     const chartDisplay=()=>{
-        const rateKeys = Object.keys(props.rates).slice(50,55);
-        const rateValues = Object.values(props.rates).slice(50,55);
-        console.log(rateKeys);
-        console.log(rateValues);
+        const rateKeys = Object.keys(props.rates).slice(60,65);
+        const rateValues = Object.values(props.rates).slice(60,65);
         setBasicData({
             labels:rateKeys,
             datasets: [
@@ -24,7 +22,7 @@ function BarChart(props){
  
     useEffect(() => {
         chartDisplay();
-    },[rates]);                                     //eslint-disable-line
+    },[rates]);                                    
     
 
 const getLightTheme = () => {

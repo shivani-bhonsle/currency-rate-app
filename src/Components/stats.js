@@ -37,7 +37,6 @@ function Stats(props){
             let highRate=Math.max(...values);
             setHighestRate(highRate.toFixed(1));
             const key=Object.keys(obj).find(k => obj[k] === highRate);
-            console.log(key)
             setCurrency(key)
             let conversionResponse = fetch('https://api.exchangerate.host/convert?from=USD&to=EUR&amount=1000');
             let conversionValue = await conversionResponse;
@@ -46,7 +45,7 @@ function Stats(props){
     }
     useEffect(()=>{
         FetchStatsData();
-    },[]);                              //eslint-disable-line
+    },[]);                            
     return(
   <>   
 <div className="surface-ground px-4 py-5 md:px-6 lg:px-8 mt-8">

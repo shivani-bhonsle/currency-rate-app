@@ -20,11 +20,9 @@ export default function LoginPage() {
            return item || {};
     });
     const [errorMsg, setErrorMsg]=useState(false);
-    const [responseTime,setResponseTime]=useState(()=>{
-        const item = window.localStorage.getItem("Time");
-        return item || ""
-    })
-    const date = new Date();
+    const [responseTime,setResponseTime]=useState(0)
+  
+
    async function handleSubmit(e) {
         e.preventDefault();
         var mailformat = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/; //eslint-disable-line
@@ -41,24 +39,30 @@ export default function LoginPage() {
         window.localStorage.setItem("Email",email)
         myRef.current.scrollIntoView();
         setErrorMsg(false)
-        let response = fetch('https://api.exchangerate.host/latest');
-        let value = await response;
-        let result = await value.json();
-        setRate(result.rates); 
+        setLastSubtime();
+        fetchRate();
+        const date = new Date();
+        let time = date.getTime();
+        window.localStorage.setItem("Time",time)
+    }
+
+    const setLastSubtime = ()=>{
+        const date = new Date();
         let time = date.getTime();
         let savedTime = window.localStorage.getItem("Time")
         savedTime==null?setResponseTime(0):setResponseTime(millisToMinutesAndSeconds(time-savedTime));
-        console.log(savedTime)
-        console.log(time-savedTime)
-        window.localStorage.setItem("Time",time)
-        setInterval(fetchRate,300000)
     }
+
     async function fetchRate(){
-            let response = fetch('https://api.exchangerate.host/latest');
-            let value = await response;
-            let result = await value.json();
-            setRate(result.rates) ;
-            console.log("rate fetched after 5 mins!")
+        setLastSubtime();
+        let response = fetch('https://api.exchangerate.host/latest');
+        let value = await response;
+        let result = await value.json();
+        setRate(result.rates) ;
+        window.localStorage.setItem('MY_APP_RATES',JSON.stringify(result.rates));
+        const date = new Date();
+         let time = date.getTime();
+         window.localStorage.setItem("Time",time)
     }
 
     function millisToMinutesAndSeconds(millis) {
@@ -70,14 +74,11 @@ export default function LoginPage() {
     useEffect(() => {
         const data = window.localStorage.getItem('MY_APP_RATES');
         if ( data !== null ) setRate(JSON.parse(data));
+        setInterval(fetchRate,300000)
+        setLastSubtime();
       }, []);
     
-      useEffect(() => {
-        window.localStorage.setItem('MY_APP_RATES',JSON.stringify(rate));
-      }, [rate]);
-    
 
-    
     return(
         <>
         <div className="surface-card p-8 shadow-2 border-round w-full lg:w-6 m-auto mt-8">
